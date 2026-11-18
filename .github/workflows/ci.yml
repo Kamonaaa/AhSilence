@@ -27,9 +27,9 @@ jobs:
           distribution: "temurin"
 
       - name: Set up Android NDK 27.1
-        uses: nttld/setup-ndk@v3
+        uses: nttld/setup-ndk@v1
         with:
-          ndk-version: 27.1.12297006
+          ndk-version: r27b
           link-to-sdk: true
 
       - name: Setup Gradle
