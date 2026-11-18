@@ -35,9 +35,11 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Fix Incompatible Lifecycle Version
+      - name: Revert Broken Dependabot Upgrades
         run: |
           sed -i 's/lifecycleRuntimeKtx = "2.11.0"/lifecycleRuntimeKtx = "2.8.7"/' gradle/libs.versions.toml
+          sed -i 's/coroutines = "1.11.0"/coroutines = "1.8.1"/' gradle/libs.versions.toml
+          sed -i 's/composeBom = "2026.06.01"/composeBom = "2024.09.00"/' gradle/libs.versions.toml
 
       - name: Fix Gradlew Permissions
         run: chmod +x gradlew
